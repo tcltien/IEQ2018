@@ -40,6 +40,7 @@ $(document).ready(function() {
 		var imageCaptureSource = $('#canvasImage').attr('src');
 		var dateTime = moment().toDate();
 		if (validate(nameText, phoneText, imageCaptureSource, "register")) {
+			show('loading', true);
 			$.ajax({
 				url: "/users/register",
 				type: "POST",
@@ -52,6 +53,7 @@ $(document).ready(function() {
 				success: function (data) {
 					if (data.success) {
 						toastr.success("Register Successfully");
+						show('loading', false);
 						dataTableObj.row.add([
 							'<img id="" class="rowImage" src="' + imageCaptureSource + '" class="">', 
 							'<input data-id=' + data.users.insertedIds[0] + ' type="text" class="nameText" readonly value="'+ nameText +'">',

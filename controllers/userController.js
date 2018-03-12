@@ -55,11 +55,16 @@ module.exports.delete = function(req, res) {
     userDAO.find(req.query._id, function(err, data){
         userDAO.delete(req.query._id, function(err, result){
             if (err) res.send("error");
-            fs.unlinkSync('./public/images/' + data[0].imageSource)
-            var result = {
-                success: 'true'
+            if (fs.existsSync('./public/images/' + data[0].imageSource)) {
+                fs.unlinkSync('./public/images/' + data[0].imageSource)
+                var result = {
+                    success: 'true'
+                }
+                res.json(result);
+            } else {
+                res.send("error");
             }
-            res.json(result);
+           
         })
     })
 
