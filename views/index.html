@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview App</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  </head>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" src="/javascripts/moment.js"></script>
+   <!-- jQuery Custom -->
+  <script type="text/javascript" src="/javascripts/index.js"></script>
+  <script type="text/javascript" src="/javascripts/user.js"></script>
+  
+  <body> 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+            <p> Dashboard </p>
+        </div>
+        <div class="col-sm-10">
+            <p style="text-align: right"> Xin chào quý khách</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <a href="" id="showAllNav">Danh sách user</a>
+          <br>
+          <a href="" id="registerNav">Chụp hình đăng ký </a>
+        </div>
+        <div class="col-sm-10 main-content">
+          <div class="table-responsive" id="listAll-div">
+            <h2>Danh sách user</h2>
+            <hr/>
+            <div class="">
+              <p>Danh sách user đã đăng ký</p>
+              <table class="table table-striped table-hover" id="table-data">
+                  <thead>
+                    <th class="nosort" width="30%">Hình chụp</th>
+                    <th width="13%">Tên </th>
+                    <th width="15%">Số điện thoại</th>
+                    <th width="10%">Thời gian</th>
+                    <th width="12%" class="nosort actionCol">Hành động</th>
+                  </thead>
+                  <tbody><tr class="hidden"><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row hidden" id="register-div">
+            <h2>Chụp hình đăng ký</h2>
+            <div class="row">
+              <div class="col-xs-6 capture-pic-form">    
+                  <p>Camera chụp hình</p>   
+                  <hr/>
+                  <div class="">                    
+                    <video id="video" width="500" height="400" autoplay></video>
+                  </div>
+                  <button id="snap" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-camera" aria-hidden="true"></i>
+                    Chụp hình
+                  </button>
+              </div>
+              <div class="col-xs-6">                  
+                  <div class="">
+                    <p class="register-title">Thêm thông tin khách hàng</p>
+                    <hr/>
+                    <div class="col-xs-6">
+                        <canvas id="imageCapture" width="200" height="150"></canvas>
+                        <img id="canvasImage" src="" class="hidden">
+                    </div>
+                    <div class="col-xs-6">
+                        <table class="table register-form">
+                            <tr>
+                              <td>Họ tên</td>
+                              <td><input class="txtName form-control" type="text" placeholder="Nhap ho ten" required></td>
+                            </tr>                      
+                            <tr>
+                                <td>Số điện thoại</td>
+                                <td><input class="txtPhone form-control" type="number" placeholder="Nhap so dien thoai" required></td>
+                            </tr>
+                          </table>
+                          <button id="btnRegister" style="text-align: right" class="btn btn-default"> Đăng ký</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ban co chac chan xoa user nay khong?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>            
+            <div class="modal-body">
+              <div class="inline-div"> Ho ten: <p style="display: inline-block" class="modal-name"> </p> </div>
+              <div class="inline-div"> So dien thoai: <p style="display: inline-block" class="modal-phone"> </p> </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="btnConfirmNo" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" id="btnConfirmYes">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" id="loading" style="display:none">
+          <i class="fa fa-spinner fa-spin loading-gif" style="font-size:24px"></i>
+      </div>
+    </div> <!-- END COINTAINER -->
+</body>
+</html>

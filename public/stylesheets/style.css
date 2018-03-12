@@ -1,0 +1,53 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#snap {
+  font-size: 20px;
+}
+#snap:hover {
+  background-color: #7fb7e6;
+}
+
+#registerBtn {
+  float: right;
+}
+
+.register-form {
+  height: 170px;
+}
+.register-title, .capture-pic-form {
+  text-align: center;
+}
+.nosort:after , .nosort:before {
+  display: none !important ;
+}
+
+.nosort {
+  padding-right: 0px !important;
+}
+
+#loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.loading-gif {
+  font-size: 40px !important;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+}

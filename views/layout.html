@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+
+  <body>
+    {% include 'header.html' %}
+    <div id="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+</body>
+</html>
