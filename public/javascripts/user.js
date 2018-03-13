@@ -56,8 +56,8 @@ $(document).ready(function() {
 						show('loading', false);
 						dataTableObj.row.add([
 							'<img id="" class="rowImage" src="' + imageCaptureSource + '" class="">', 
-							'<input data-id=' + data.users.insertedIds[0] + ' type="text" class="nameText" readonly value="'+ nameText +'">',
-							'<input type="text" class="phoneText" readonly value="'+ phoneText + '">',
+							'<input data-id=' + data.users.insertedIds[0] + ' type="text" class="nameText form-control" readonly value="'+ nameText +'">',
+							'<input type="text" class="phoneText form-control" readonly value="'+ phoneText + '">',
 							'"' + formatDateTime(dateTime) +'"',
 							'<button class="btnUpdate btn btn-success">Edit</button><button class="btnDelete btn btn-danger">Delete</button>'
 						]).draw(false);
