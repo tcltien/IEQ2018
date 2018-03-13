@@ -65,10 +65,12 @@ $(document).ready(function() {
 						dataTableObj.page('last').draw(false);
 						clearRegisterForm();
 					} else {
+						show('loading', false);
 						toastr.error("Something went wrong, register error!");
 					}
 				},
 				error: function(e) {
+					show('loading', false);
 					toastr.error("Something went wrong, please try again later");
 				}
 			});
@@ -114,11 +116,13 @@ $(document).ready(function() {
 							btnName.text('Edit');
 							show('loading', false);
 						} else {
+							show('loading', false);
 							toastr.error("Something went wrong, update error!")
 						}
 						
 					},
 					error: function(e) {
+						show('loading', false);
 						toastr.error("omething went wrong, please try again later");
 					}
 				});
@@ -167,10 +171,12 @@ $(document).ready(function() {
 					show('loading', false);
 					dataTableObj.row('.selected').remove().draw( false );	
 				} else {
+					show('loading', false);
 					toastr.error("Something went wrong, delete error!");
 				}
 			},
 			error: function(e) {
+				show('loading', false);
 				toastr.error("Something went wrong, delete error!");
 			}
 		});
